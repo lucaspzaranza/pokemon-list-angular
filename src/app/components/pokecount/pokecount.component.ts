@@ -9,7 +9,6 @@ import { selectMyPokemons } from 'src/app/store/pokemon.selector';
   styleUrls: ['./pokecount.component.css']
 })
 export class PokecountComponent implements OnInit{
-  //constructor(private store: Store<{myPokemons: Array<Specie>}>) { }
   constructor(private store: Store<AppState>) { }
 
   pokemons = this.store.select(selectMyPokemons);

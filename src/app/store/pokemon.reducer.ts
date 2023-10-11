@@ -10,9 +10,6 @@ export const initialState: AppState = {
 export const pokemonReducer = createReducer(
     initialState, 
     on(getAllPokemons, (state, val) => {
-        // console.log('loaded pokemons on store');
-        // console.log(val.pokemonList);
-        
         return ({
             ...state,
             pokemonList: val.pokemonList
@@ -20,12 +17,6 @@ export const pokemonReducer = createReducer(
     }),
 
     on(addPokemon, (state, val) => {
-        // console.log('current state:');
-        // console.log(state.myPokemons);
-        
-        // console.log('pokemon to add:');
-        // console.log(val.pokemonToAdd);
-        
         return ({
             ...state,
             myPokemons: [

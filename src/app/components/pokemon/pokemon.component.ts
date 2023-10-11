@@ -30,19 +30,10 @@ export class PokemonComponent implements OnInit {
   }
 
   viewPokeData(index: number) {
-    //console.log(index);
     console.log(this.pokeList.results[index].url);
 
     this.pokeService.getPokemonByURL(this.pokeList.results[index].url).subscribe(pokemon => {
       this.selectedPokemon = pokemon;
-      console.log('pokemon status');
-      //console.log(pokemon.stats.fpr);
-      this.selectedPokemon.stats.forEach(stat => {
-        
-        console.log(stat.stat.name);
-        console.log(stat.base_stat);
-      })
-
       this.spriteUrl = this.selectedPokemon.sprites.front_default;
 
       this.pokeIndexList[index] = true;
