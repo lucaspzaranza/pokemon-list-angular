@@ -1,0 +1,69 @@
+div {
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.pokebutton {
+    background-color: gray;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+
+    margin-bottom: 20px;
+}
+
+.pokemonContainer {
+    position: fixed;
+    top: 35%;
+    left: 25%;
+    background-color: lightblue;
+    height: 200px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.pokemonData{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: start; */
+    justify-content: center;
+    align-items: center;
+}
+
+.pokemonContainer button {
+    /* color: red; */
+    height: 50px;
+    font-weight: bold;    
+}
+
+.pokemonContainer img {
+    width: 200px;
+    margin: 0;
+    padding: 0;
+}
+
+.poke-options{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+.poke-options button {
+    width: 50%;
+}
+
+.stats {
+    margin-left: 20px;
+    width: max-content;
+}

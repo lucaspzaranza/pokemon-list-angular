@@ -1,0 +1,42 @@
+import { createReducer, on } from "@ngrx/store";
+import { getAllPokemons, addPokemon, removePokemon } from "./pokemon.action";
+import { AppState, Pokemon, PokemonList, Specie } from "../models/pokemon";
+
+export const initialState: AppState = {
+    pokemonList: new PokemonList(),
+    myPokemons: new Array<Specie>()
+}
+
+export const pokemonReducer = createReducer(
+    initialState, 
+    on(getAllPokemons, (state, val) => {
+        // console.log('loaded pokemons on store');
+        // console.log(val.pokemonList);
+        
+        return ({
+            ...state,
+            pokemonList: val.pokemonList
+        })
+    }),
+
+    on(addPokemon, (state, val) => {
+        // console.log('current state:');
+        // console.log(state.myPokemons);
+        
+        // console.log('pokemon to add:');
+        // console.log(val.pokemonToAdd);
+        
+        return ({
+            ...state,
+            myPokemons: [
+                ...state.myPokemons,
+                val.pokemonToAdd
+            ]
+        })
+    }),
+    
+    on(removePokemon, (state, val) => ({
+        ...state,
+        myPokemons: state.myPokemons.filter(pokemon => pokemon.name !== val.pokemonToRemove.name)
+    }))
+)

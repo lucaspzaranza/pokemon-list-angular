@@ -1,0 +1,34 @@
+<div>
+    <button class="pokebutton" *ngFor="let pokemon of pokeList.results; index as i" (click)="viewPokeData(i)">
+        <span>{{ pokemon.name }}</span>
+    </button>
+</div>
+
+<div [ngClass]="selectedIndex === -1 ? '' : 'pokemonContainer'">
+    <div *ngIf="selectedIndex > -1">
+
+        <div class="pokemonData">
+            <img *ngIf="spriteUrl.length > 0" [src]="spriteUrl" />
+            
+            <div class="stats">
+                <h3>
+                    {{ pokeList.results[selectedIndex].name }}
+                </h3>
+                <span *ngFor="let stat of selectedPokemon.stats">
+                    <strong>{{ stat.stat.name }}: {{ stat.base_stat }}</strong>
+                </span>
+            </div>
+        </div>
+
+        <div class="poke-options"> 
+            <button (click)="dispatchAddPokemon(pokeList.results[selectedIndex])">
+                Adicionar
+            </button>
+            <button (click)="dispatchRemovePokemon(pokeList.results[selectedIndex])">
+                Remover
+            </button>
+        </div>
+
+        <button (click)="hidePokeData(selectedIndex)">Fechar</button>
+    </div>
+</div>

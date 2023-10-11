@@ -1,0 +1,8 @@
+<div>
+    <p>Contagem de pokemons: {{ loadedData.pokemonList.results.length }}</p>
+    <p>Meus pokemons: 
+        <span *ngFor="let pokemon of loadedData.myPokemons">
+            {{ pokemon.name }},
+        </span>
+    </p>
+</div>
